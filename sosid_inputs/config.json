@@ -1,0 +1,88 @@
+{
+  "upstream_repository": "https://github.com/ibrahimoguzc/wildfire-rl-new",
+  "scenarios": [
+    "Salamis",
+    "Pyrenees",
+    "Palisades"
+  ],
+  "default_scenario": "Palisades",
+  "rl_environment": {
+    "decision_interval_minutes": 10,
+    "max_runtime_seconds": 86400,
+    "controlled_agent_count": 3,
+    "global_state_features": [
+      "temperature_c",
+      "humidity_pct",
+      "wind_speed_ms",
+      "wind_direction_deg",
+      "time_to_sunset_min",
+      "distance_to_fire_line_m",
+      "distance_to_water_m",
+      "active_firefront_count",
+      "burnt_area_fraction",
+      "fire_center_x",
+      "fire_center_y",
+      "spread_angle_deg"
+    ],
+    "per_agent_features": [
+      "norm_x",
+      "norm_y",
+      "altitude_m",
+      "has_payload",
+      "propellant_fraction",
+      "return_margin"
+    ],
+    "observation_dim": 30,
+    "action_space_type": "MultiDiscrete",
+    "tactic_choices_per_agent": 24
+  },
+  "moe_evaluation": {
+    "mission_level_5term": {
+      "weights": {
+        "burnt_area": 0.2,
+        "cost_area": 0.2,
+        "emission_area": 0.2,
+        "fleet_acquisition_cost": 0.3,
+        "fleet_operational_cost": 0.1
+      },
+      "cost_assumptions": {
+        "fuel_usd_per_kg": 0.82,
+        "price_per_aircraft_usd": 50000000,
+        "availability_cost_usd": 100,
+        "flight_cost_per_hour_usd": 100,
+        "energy_cost_per_hour_usd": 100
+      },
+      "scenario_baselines": {
+        "Salamis": {
+          "burnt_area_ref": 4146,
+          "cost_area_ref": 139929,
+          "emission_area_ref": 7140,
+          "fleet_acq_cost_ref": 100000000,
+          "fleet_ops_cost_ref": 268000
+        },
+        "Pyrenees": {
+          "burnt_area_ref": 9938,
+          "cost_area_ref": 175089,
+          "emission_area_ref": 23641,
+          "fleet_acq_cost_ref": 100000000,
+          "fleet_ops_cost_ref": 167000
+        },
+        "Palisades": {
+          "burnt_area_ref": 9087,
+          "cost_area_ref": 1911058,
+          "emission_area_ref": 13122,
+          "fleet_acq_cost_ref": 100000000,
+          "fleet_ops_cost_ref": 250000
+        }
+      }
+    },
+    "ppo_step_reward_3term": {
+      "moe_weight": 0.33,
+      "palisades_norms": {
+        "burn_area_norm_m2": 90870000.0,
+        "cost_norm_eur": 191106000000.0,
+        "emission_norm_tonnes": 131224.0
+      }
+    }
+  }
+}

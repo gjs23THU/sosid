@@ -1,0 +1,4 @@
+scenario_id,name,terrain_namespace,operational_namespace,cell_size_m,mission_start,max_runtime_s,response_time_s,takeoff_interval_s,turnaround_time_s,scoop_time_s,wind_run_km,wind_direction_deg,ignition_count,airport_count,water_source_count,burnt_area_ref,cost_area_ref,emission_area_ref,fleet_acq_cost_ref,fleet_ops_cost_ref
+salamis,Salamis,Salamis_2004x1996_5m,Salamis_128x128_800,5,2023-07-17T15:39:00,43200,7200,300,100,30,305,230,1,2,17,4146,139929,7140,100000000,268000
+pyrenees,Pyrenees,Pyrenees_2000x1996_5m,Pyrenees_128x128_800,5,2023-08-17T06:15:00,43200,1800,300,100,30,350,300,1,4,0,9938,175089,23641,100000000,167000
+palisades,Palisades,Palisades_2004x1996_5m,Palisades_128x128_800,5,2025-01-07T10:30:00,86400,3600,300,100,30,320,15,1,2,1,9087,1911058,13122,100000000,250000

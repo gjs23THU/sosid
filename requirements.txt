@@ -1,0 +1,28 @@
+# Python 3.10+
+# Core simulation & RL dependencies (see upstream/setup.cfg for full desktop GUI extras)
+numpy<2.0
+scipy<1.14
+numba
+pandas
+pydantic
+pyyaml
+haversine
+pillow
+mesa<=1.0.0
+Deprecated
+pyproj>=3.5.0
+orjson
+recordclass<=0.22.1
+pyinstrument
+colorama
+shapely
+scikit-image<=0.22.0
+attrs>=24.1.0
+msgpack
+pyarrow
+h5py
+geopandas
+gymnasium
+stable-baselines3
+torch
+matplotlib
